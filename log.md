@@ -2783,3 +2783,29 @@ let arr2;
 console.log(arr2);
 //["JAN", "FEB", "MAR", "APR", "MAY"]
 
+
+
+
+
+
+
+
+#Log 68 ###Day 68 : [Date:22nd August 2020]s
+Today's thought: I read a tweet by a prominent dev who mentioned in his tweet that it is not a good idea to wait until you finish learning a topic 100% before proceeding to do a project, on the other hand, it is better to learn 10% and do the 90% by doing. So, I am going to pursue the same thought!
+
+Today's topic: BASIC REGISTER FORM IN REACT HOOKS
+
+After reading up some blogs and tutorials on hooks, I am going to practise making this project.
+
+I will just mention the task here today and proceed to work on it from tomorrow onwards
+PREPARING THE TASK FOR MAKING A SIMPLE REGISTRATION FORM IN REACT:
+The Project task:
+-Simple registration form where the user has to submit his or her First Name, Last Name and Email address. 
+-I have to add code to add validation for the form
+-I have to show error messages if the form fields are not filled in
+-I have to make sure that the error message is only shown if the submit button has been clicked and if the form field is empty
+-If the user leaves the form blank and try to submit the registration form, then the error message will appear
+-Success message has to appear after registering
+--Success message should appear only if the form is valid
+-Success message should only appear if the form submitted is truthy 
+
