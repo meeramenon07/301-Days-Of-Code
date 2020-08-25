@@ -2809,3 +2809,216 @@ The Project task:
 --Success message should appear only if the form is valid
 -Success message should only appear if the form submitted is truthy 
 
+
+
+
+
+
+
+
+#Log 69 ###Day 69 : [Date:25th August 2020]
+
+Today's task: I am going to document my code for the finished project for the above project- simple registration/subscription form using React hooks
+
+for the html file 
+```
+<div id="root"></div>
+```
+
+for the javascript file
+```
+function Subscription(){
+  const [values, setValues] = React.useState({
+    fullName: "",
+    gender: "",
+    age: "",
+    email: "",
+  });
+  
+  const [submitted, setSubmitted] = React.useState(false);
+  const [valid, setValid] = React.useState(false);
+  
+  const handleFullNameInputChange = (event) => {
+    setValues({...values, fullName: event.target.value})
+  }
+  
+  const handleGenderInputChange = (event)=>{
+    setValues({...values, gender: event.target.value })
+  }
+  
+  const handleAgeInputChange = (event)=>{
+    setValues({...values, age: event.target.value })
+  }
+  
+  const handleEmailInputChange = (event)=>{
+    setValues({...values, email: event.target.value })
+  }
+  
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    if(values.fullName && values.gender && values.age && values.email ){
+      setValid(true);
+    }
+    setSubmitted(true);
+  }
+  
+  return(
+   <div className="form-container">
+      {submitted && valid ? <div className="success-message">Success! Thank you for subscribing</div>: ""}
+      <form className="register-form" onSubmit={handleSubmit}>
+       <input 
+          id="full-name"
+          type="text"
+          name="fullName"
+          clasNames="form-field"
+          placeholder="Full Name"
+          value={values.fullName}
+          onChange={handleFullNameInputChange}
+          
+          disabled={submitted}
+          />
+        {submitted && !values.fullName ? <span id = "full-name-error">Please Enter Your Full Name</span>: ""}
+        <input 
+          id="gender"
+          type="text"
+          name="gender"
+          className="form-field"
+          placeholder="Gender"
+          value={values.gender}
+          onChange={handleGenderInputChange}
+          onSubmit={handleSubmit}
+          />
+        {submitted && !values.gender ? <span id = "gender-error">Please Enter Your Gender</span>: ""}
+
+        <input 
+          id="age"
+          type="text"
+          name="age"
+          className="form-field"
+          placeholder="Age"
+          value={values.age}
+          onChange={handleAgeInputChange}
+          onSubmit={handleSubmit}
+          />
+        {submitted && !values.age ? <span id = "age-error">Please Enter Your Age</span>: ""}
+
+        <input 
+          id="email"
+          type="text"
+          name="email"
+          className="form-field"
+          placeholder="Email"
+          value={values.email}
+          onChange={handleEmailInputChange}
+          onSubmit={handleSubmit}
+          />
+          {submitted && !values.email ? <span id = "email-error">Please Enter Email Address</span>: ""}
+          <button className ="form-field" type= "submit">
+            SUBSCRIBE NOW
+          </button>
+      </form>
+   </div>
+  );
+}
+
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="">
+        <h1>Simple Subscription Form in React Hooks</h1>
+        <Subscription />
+      </div>
+    );
+  }
+}
+
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+```
+
+For the css file
+```
+body{
+  display:flex;
+  min-height:700px;
+  min-width: 250px;
+  background-color:black;
+  color:whitesmoke;
+  justify-content:center;
+  align-items:center;
+  margin:auto;
+  
+}
+.form-container{
+  
+  width:340px;
+  margin:auto;
+  padding:7px;
+  background-color:seagreen;
+  color:white;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 7px ;
+  
+}
+
+.success-message {
+  
+    font-size:20px;
+  background-color: crimson;
+  padding: 15px 16px 17px 15px;
+  font-size: 19px;
+  color: whitesmoke;
+}
+
+.form-field {
+  margin-top: 15px ;
+  margin-left:7px;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  
+}
+span {
+  
+  font-size: 19px;
+  color: whitesmoke;
+  margin-bottom: 25px;
+}
+input{
+  background-color:whitesmoke;
+  padding: 10px 15px 10px 10px ;
+  margin:2px;
+  height:15px;
+}
+
+
+button {
+  background: black;
+  color: white;
+  width: 200px;
+  margin:25px;
+  align-self:center;
+  padding: 20px;
+  height:50px;
+  cursor: pointer;
+  
+}
+button:hover{
+  background-color:crimson;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+```
+The link to the codepen source file :
+[https://codepen.io/meeramenon07/pen/JjXEMBy]
+
